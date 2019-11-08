@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.jade.sbp.mapper.UserMapper">
+    <select id="getLoginInfo" resultType="com.jade.sbp.domain.User">
+        select * from User where id = #{id}
+    </select>
+    
+	<select id="getAllBoard" resultType="com.jade.sbp.domain.User">
+		select * from User order by id desc
+	</select>
+	
+	<insert id="createJson">
+		insert into User(id, content, subject, email, googleid, naverid, nickname, loginip, lastlogin) 
+		values(null, #{content}, #{subject}, "naver@naver.com", "choss002@gmail.com",  "choss01", "데이터 반-복", "154.37.21.1", sysdate()) 
+	</insert>
+	
+	<delete id="delete">
+		delete from User where id=#{id}
+	</delete>
+
+</mapper>
